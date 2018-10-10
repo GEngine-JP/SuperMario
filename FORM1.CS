@@ -1,55 +1,54 @@
 using System;
-using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ideology
 {
     /// <summary>
-    /// Form1 µƒ’™“™Àµ√˜°£
+    /// Form1 ÁöÑÊëòË¶ÅËØ¥Êòé„ÄÇ
     /// </summary>
-    public class Form1 : System.Windows.Forms.Form
+    public class Form1 : Form
     {
+        private Timer mytime;
+        private IContainer components;
 
-        private System.Windows.Forms.Timer mytime;
-        private System.ComponentModel.IContainer components;
 
-
-        private int DataTotal;    //º«¬º ˝
-        private System.Random RandomNumber;
-        private System.Data.DataTable dTable;
+        private int DataTotal; //ËÆ∞ÂΩïÊï∞
+        private Random RandomNumber;
+        private DataTable dTable;
         private ArrayList ArrayMsg = new ArrayList();
         private ArrayList ArraySys = new ArrayList();
 
 
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button F_begin;
-        private System.Windows.Forms.Button F_open;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private Label label4;
+        private Button F_begin;
+        private Button F_open;
+        private Label label3;
+        private Label label2;
+        private Label label5;
 
 
-        private System.Windows.Forms.PictureBox biaozhi;
-        private System.Windows.Forms.Button tol_close;
-        private System.Windows.Forms.Button tol_min;
+        private PictureBox biaozhi;
+        private Button tol_close;
+        private Button tol_min;
 
-        private System.Windows.Forms.Button tol_max;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private Button tol_max;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label label1;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
 
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private Label label6;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
 
         //---------------
         private ArrayList ArrayName = new ArrayList();
@@ -63,66 +62,65 @@ namespace ideology
         public Form1()
         {
             //
-            // Windows ¥∞ÃÂ…Ëº∆∆˜÷ß≥÷À˘±ÿ–Ëµƒ
+            // Windows Á™ó‰ΩìËÆæËÆ°Âô®ÊîØÊåÅÊâÄÂøÖÈúÄÁöÑ
             //
             InitializeComponent();
 
             //
-            // TODO: ‘⁄ InitializeComponent µ˜”√∫ÛÃÌº”»Œ∫Œππ‘Ï∫Ø ˝¥˙¬Î
+            // TODO: Âú® InitializeComponent Ë∞ÉÁî®ÂêéÊ∑ªÂä†‰ªª‰ΩïÊûÑÈÄ†ÂáΩÊï∞‰ª£Á†Å
             //
         }
 
         /// <summary>
-        /// «Â¿ÌÀ˘”–’˝‘⁄ π”√µƒ◊ ‘¥°£
+        /// Ê∏ÖÁêÜÊâÄÊúâÊ≠£Âú®‰ΩøÁî®ÁöÑËµÑÊ∫ê„ÄÇ
         /// </summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                if (components != null)
-                {
-                    components.Dispose();
-                }
+                components?.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
-        #region Windows ¥∞ÃÂ…Ëº∆∆˜…˙≥…µƒ¥˙¬Î
+        #region Windows Á™ó‰ΩìËÆæËÆ°Âô®ÁîüÊàêÁöÑ‰ª£Á†Å
+
         /// <summary>
-        /// …Ëº∆∆˜÷ß≥÷À˘–Ëµƒ∑Ω∑® - ≤ª“™ π”√¥˙¬Î±‡º≠∆˜–ﬁ∏ƒ
-        /// ¥À∑Ω∑®µƒƒ⁄»›°£
+        /// ËÆæËÆ°Âô®ÊîØÊåÅÊâÄÈúÄÁöÑÊñπÊ≥ï - ‰∏çË¶Å‰ΩøÁî®‰ª£Á†ÅÁºñËæëÂô®‰øÆÊîπ
+        /// Ê≠§ÊñπÊ≥ïÁöÑÂÜÖÂÆπ„ÄÇ
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.mytime = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.F_begin = new System.Windows.Forms.Button();
-            this.F_open = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.biaozhi = new System.Windows.Forms.PictureBox();
-            this.tol_close = new System.Windows.Forms.Button();
-            this.tol_min = new System.Windows.Forms.Button();
-            this.tol_max = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.biaozhi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
+            this.mytime = new Timer(this.components);
+            this.label4 = new Label();
+            this.F_begin = new Button();
+            this.F_open = new Button();
+            this.label5 = new Label();
+            this.label2 = new Label();
+            this.label3 = new Label();
+            this.biaozhi = new PictureBox();
+            this.tol_close = new Button();
+            this.tol_min = new Button();
+            this.tol_max = new Button();
+            this.pictureBox1 = new PictureBox();
+            this.pictureBox2 = new PictureBox();
+            this.label1 = new Label();
+            this.panel1 = new Panel();
+            this.panel2 = new Panel();
+            this.panel3 = new Panel();
+            this.label13 = new Label();
+            this.label12 = new Label();
+            this.label11 = new Label();
+            this.label10 = new Label();
+            this.label9 = new Label();
+            this.label6 = new Label();
+            this.label7 = new Label();
+            ((ISupportInitialize) (this.biaozhi)).BeginInit();
+            ((ISupportInitialize) (this.pictureBox1)).BeginInit();
+            ((ISupportInitialize) (this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -131,173 +129,174 @@ namespace ideology
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(202, 90);
+            this.label4.BackColor = Color.Transparent;
+            this.label4.ForeColor = Color.White;
+            this.label4.Location = new Point(202, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 12);
+            this.label4.Size = new Size(119, 12);
             this.label4.TabIndex = 10;
-            this.label4.Text = "¿Óª™±‡–¥ ∞Ê»®À˘”–£°";
+            this.label4.Text = "ÊùéÂçéÁºñÂÜô ÁâàÊùÉÊâÄÊúâÔºÅ";
             // 
             // F_begin
             // 
-            this.F_begin.BackColor = System.Drawing.Color.Transparent;
-            this.F_begin.Font = new System.Drawing.Font("ª™ŒƒÁ˙ÁÍ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.F_begin.ForeColor = System.Drawing.Color.MediumBlue;
-            this.F_begin.Location = new System.Drawing.Point(150, 335);
+            this.F_begin.BackColor = Color.Transparent;
+            this.F_begin.Font = new Font("ÂçéÊñáÁê•ÁèÄ", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte) (134)));
+            this.F_begin.ForeColor = Color.MediumBlue;
+            this.F_begin.Location = new Point(150, 335);
             this.F_begin.Name = "F_begin";
-            this.F_begin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.F_begin.Size = new System.Drawing.Size(216, 40);
+            this.F_begin.RightToLeft = RightToLeft.No;
+            this.F_begin.Size = new Size(216, 40);
             this.F_begin.TabIndex = 12;
-            this.F_begin.Text = "“° ∫≈£®ENTER£©";
+            this.F_begin.Text = "Êëá Âè∑ÔºàENTERÔºâ";
             this.F_begin.UseVisualStyleBackColor = false;
-            this.F_begin.Click += new System.EventHandler(this.F_begin_Click);
+            this.F_begin.Click += new EventHandler(this.F_begin_Click);
             // 
             // F_open
             // 
-            this.F_open.BackColor = System.Drawing.Color.Transparent;
-            this.F_open.Font = new System.Drawing.Font("ª™ŒƒÁ˙ÁÍ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.F_open.ForeColor = System.Drawing.Color.MediumBlue;
-            this.F_open.Location = new System.Drawing.Point(150, 390);
+            this.F_open.BackColor = Color.Transparent;
+            this.F_open.Font = new Font("ÂçéÊñáÁê•ÁèÄ", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte) (134)));
+            this.F_open.ForeColor = Color.MediumBlue;
+            this.F_open.Location = new Point(150, 390);
             this.F_open.Name = "F_open";
-            this.F_open.Size = new System.Drawing.Size(216, 40);
+            this.F_open.Size = new Size(216, 40);
             this.F_open.TabIndex = 13;
-            this.F_open.Text = "ø™ ∫≈£®SPACE£©";
+            this.F_open.Text = "ÂºÄ Âè∑ÔºàSPACEÔºâ";
             this.F_open.UseVisualStyleBackColor = false;
-            this.F_open.Click += new System.EventHandler(this.F_open_Click);
+            this.F_open.Click += new EventHandler(this.F_open_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(255, 90);
+            this.label5.BackColor = Color.Transparent;
+            this.label5.ForeColor = Color.White;
+            this.label5.Location = new Point(255, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(11, 12);
+            this.label5.Size = new Size(11, 12);
             this.label5.TabIndex = 12;
             this.label5.Text = "0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(157, 90);
+            this.label2.BackColor = Color.Transparent;
+            this.label2.ForeColor = Color.White;
+            this.label2.Location = new Point(157, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 12);
+            this.label2.Size = new Size(0, 12);
             this.label2.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(92, 90);
+            this.label3.BackColor = Color.Transparent;
+            this.label3.ForeColor = Color.White;
+            this.label3.Location = new Point(92, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 12);
+            this.label3.Size = new Size(0, 12);
             this.label3.TabIndex = 10;
             // 
             // biaozhi
             // 
-            this.biaozhi.BackColor = System.Drawing.Color.Transparent;
-            this.biaozhi.Image = ((System.Drawing.Image)(resources.GetObject("biaozhi.Image")));
-            this.biaozhi.InitialImage = ((System.Drawing.Image)(resources.GetObject("biaozhi.InitialImage")));
-            this.biaozhi.Location = new System.Drawing.Point(37, 96);
+            this.biaozhi.BackColor = Color.Transparent;
+            this.biaozhi.Image = ((Image) (resources.GetObject("biaozhi.Image")));
+            this.biaozhi.InitialImage = ((Image) (resources.GetObject("biaozhi.InitialImage")));
+            this.biaozhi.Location = new Point(37, 96);
             this.biaozhi.Name = "biaozhi";
-            this.biaozhi.Size = new System.Drawing.Size(695, 99);
+            this.biaozhi.Size = new Size(695, 99);
             this.biaozhi.TabIndex = 19;
             this.biaozhi.TabStop = false;
             // 
             // tol_close
             // 
-            this.tol_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tol_close.BackColor = System.Drawing.Color.Transparent;
-            this.tol_close.Location = new System.Drawing.Point(65, 15);
+            this.tol_close.Anchor = ((AnchorStyles) ((AnchorStyles.Top | AnchorStyles.Right)));
+            this.tol_close.BackColor = Color.Transparent;
+            this.tol_close.Location = new Point(65, 15);
             this.tol_close.Name = "tol_close";
-            this.tol_close.Size = new System.Drawing.Size(12, 12);
+            this.tol_close.Size = new Size(12, 12);
             this.tol_close.TabIndex = 25;
             this.tol_close.UseVisualStyleBackColor = false;
-            this.tol_close.Click += new System.EventHandler(this.tol_close_Click);
+            this.tol_close.Click += new EventHandler(this.tol_close_Click);
             // 
             // tol_min
             // 
-            this.tol_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tol_min.BackColor = System.Drawing.Color.Transparent;
-            this.tol_min.Location = new System.Drawing.Point(12, 15);
+            this.tol_min.Anchor = ((AnchorStyles) ((AnchorStyles.Top | AnchorStyles.Right)));
+            this.tol_min.BackColor = Color.Transparent;
+            this.tol_min.Location = new Point(12, 15);
             this.tol_min.Name = "tol_min";
-            this.tol_min.Size = new System.Drawing.Size(12, 12);
+            this.tol_min.Size = new Size(12, 12);
             this.tol_min.TabIndex = 26;
             this.tol_min.UseVisualStyleBackColor = false;
-            this.tol_min.Click += new System.EventHandler(this.tol_min_Click);
+            this.tol_min.Click += new EventHandler(this.tol_min_Click);
             // 
             // tol_max
             // 
-            this.tol_max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tol_max.BackColor = System.Drawing.Color.Transparent;
-            this.tol_max.Location = new System.Drawing.Point(39, 15);
+            this.tol_max.Anchor = ((AnchorStyles) ((AnchorStyles.Top | AnchorStyles.Right)));
+            this.tol_max.BackColor = Color.Transparent;
+            this.tol_max.Location = new Point(39, 15);
             this.tol_max.Name = "tol_max";
-            this.tol_max.Size = new System.Drawing.Size(12, 12);
+            this.tol_max.Size = new Size(12, 12);
             this.tol_max.TabIndex = 34;
             this.tol_max.UseVisualStyleBackColor = false;
-            this.tol_max.Click += new System.EventHandler(this.tol_max_Click);
+            this.tol_max.Click += new EventHandler(this.tol_max_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.BackgroundImage = ((Image) (resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Image = ((Image) (resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 36);
+            this.pictureBox1.Size = new Size(186, 36);
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.BackColor = Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))),
+                ((int) (((byte) (128)))));
+            this.pictureBox2.Dock = DockStyle.Top;
+            this.pictureBox2.Location = new Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(800, 36);
+            this.pictureBox2.Size = new Size(800, 36);
             this.pictureBox2.TabIndex = 36;
             this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("∫⁄ÃÂ", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(17, 11);
+            this.label1.BackColor = Color.Transparent;
+            this.label1.Font = new Font("Èªë‰Ωì", 32.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte) (134)));
+            this.label1.ForeColor = Color.MediumBlue;
+            this.label1.Location = new Point(17, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(498, 59);
+            this.label1.Size = new Size(498, 59);
             this.label1.TabIndex = 42;
-            this.label1.Text = "—ß …˙ —ß ∫≈";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Text = "Â≠¶ Áîü Â≠¶ Âè∑";
+            this.label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackColor = Color.Transparent;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(137, 223);
+            this.panel1.Location = new Point(137, 223);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 76);
+            this.panel1.Size = new Size(530, 76);
             this.panel1.TabIndex = 43;
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.Anchor = ((AnchorStyles) ((AnchorStyles.Top | AnchorStyles.Right)));
+            this.panel2.BackColor = Color.Transparent;
+            this.panel2.BackgroundImage = ((Image) (resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Controls.Add(this.tol_min);
             this.panel2.Controls.Add(this.tol_max);
             this.panel2.Controls.Add(this.tol_close);
-            this.panel2.Location = new System.Drawing.Point(702, 0);
+            this.panel2.Location = new Point(702, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(98, 36);
+            this.panel2.Size = new Size(98, 36);
             this.panel2.TabIndex = 44;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackColor = Color.Transparent;
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
@@ -308,84 +307,85 @@ namespace ideology
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(0, 492);
+            this.panel3.ForeColor = Color.White;
+            this.panel3.Location = new Point(0, 492);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 108);
+            this.panel3.Size = new Size(800, 108);
             this.panel3.TabIndex = 45;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.panel3.Paint += new PaintEventHandler(this.panel3_Paint);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(310, 70);
+            this.label13.Location = new Point(310, 70);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 12);
+            this.label13.Size = new Size(0, 12);
             this.label13.TabIndex = 20;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(226, 71);
+            this.label12.Location = new Point(226, 71);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(0, 12);
+            this.label12.Size = new Size(0, 12);
             this.label12.TabIndex = 19;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(145, 70);
+            this.label11.Location = new Point(145, 70);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 12);
+            this.label11.Size = new Size(0, 12);
             this.label11.TabIndex = 18;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(258, 70);
+            this.label10.ForeColor = Color.White;
+            this.label10.Location = new Point(258, 70);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 12);
+            this.label10.Size = new Size(0, 12);
             this.label10.TabIndex = 17;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(173, 70);
+            this.label9.ForeColor = Color.White;
+            this.label9.Location = new Point(173, 70);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 12);
+            this.label9.Size = new Size(0, 12);
             this.label9.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(97, 70);
+            this.label6.ForeColor = Color.White;
+            this.label6.Location = new Point(97, 70);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 12);
+            this.label6.Size = new Size(0, 12);
             this.label6.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label7.Font = new System.Drawing.Font("¡• È", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label7.Location = new System.Drawing.Point(473, 340);
-            this.label7.MinimumSize = new System.Drawing.Size(222, 35);
+            this.label7.BackColor =
+                Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (128)))));
+            this.label7.Font = new Font("Èö∂‰π¶", 26.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte) (134)));
+            this.label7.ForeColor = Color.MediumBlue;
+            this.label7.Location = new Point(473, 340);
+            this.label7.MinimumSize = new Size(222, 35);
             this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(239, 35);
+            this.label7.RightToLeft = RightToLeft.No;
+            this.label7.Size = new Size(239, 35);
             this.label7.TabIndex = 46;
-            this.label7.Text = " —ß …˙ –’ √˚";
+            this.label7.Text = " Â≠¶ Áîü Âßì Âêç";
             // 
             // Form1
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.AutoScaleBaseSize = new Size(6, 14);
+            this.BackColor = Color.FromArgb(((int) (((byte) (192)))), ((int) (((byte) (0)))), ((int) (((byte) (192)))));
+            this.BackgroundImage = ((Image) (resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new Size(800, 600);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -395,50 +395,48 @@ namespace ideology
             this.Controls.Add(this.F_open);
             this.Controls.Add(this.F_begin);
             this.Controls.Add(this.pictureBox2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Icon = ((Icon) (resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "—°—ß∫≈";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Click += new System.EventHandler(this.Form1_Click);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.biaozhi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "ÈÄâÂ≠¶Âè∑";
+            this.WindowState = FormWindowState.Maximized;
+            this.Click += new EventHandler(this.Form1_Click);
+            this.KeyUp += new KeyEventHandler(this.Form1_KeyUp);
+            this.Load += new EventHandler(this.Form1_Load);
+            ((ISupportInitialize) (this.biaozhi)).EndInit();
+            ((ISupportInitialize) (this.pictureBox1)).EndInit();
+            ((ISupportInitialize) (this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
         #endregion
 
         /// <summary>
-        /// ”¶”√≥Ã–Úµƒ÷˜»Îø⁄µ„°£
+        /// Â∫îÁî®Á®ãÂ∫èÁöÑ‰∏ªÂÖ•Âè£ÁÇπ„ÄÇ
         /// </summary>
         [STAThread]
         static void Main()
         {
             Application.Run(new Form1());
-
         }
 
-        private void F_close_Click(object sender, System.EventArgs e)
+        private void F_close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //Provider=Microsoft.Jet.OLEDB.4.0;Data    User   Id=admin;Password=;D:\c ≥ÈΩ±\20090504144352990\codefans.net\C#SQL≥ÈΩ±≥Ã–Ú\bin\Debug\lottery.mdb;
+        //Provider=Microsoft.Jet.OLEDB.4.0;Data    User   Id=admin;Password=;D:\c ÊäΩÂ•ñ\20090504144352990\codefans.net\C#SQLÊäΩÂ•ñÁ®ãÂ∫è\bin\Debug\lottery.mdb;
 
-        private void Form1_Load(object sender, System.EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-
             String SQLstr = "";
             SQLstr = "SELECT * FROM data1";
             OleDbConnection myconn; //
@@ -447,17 +445,16 @@ namespace ideology
             DataSet dtSet;
             DataRow myrow;
             myconn = new OleDbConnection("Provider="
-            + "Microsoft.Jet.OLEDB.4.0;Data Source=lottery.asf");
+                                         + "Microsoft.Jet.OLEDB.4.0;Data Source=lottery.asf");
             myrs = new OleDbDataAdapter(SQLstr, myconn);
             dtSet = new DataSet();
             myrs.Fill(dtSet, "data1");
 
             dTable = dtSet.Tables["data1"];
             DataTotal = dTable.Rows.Count;
-
         }
 
-        private void F_begin_Click(object sender, System.EventArgs e)
+        private void F_begin_Click(object sender, EventArgs e)
         {
             //this.label1.ForeColor = System.Drawing.Color.White;
             mytime.Start();
@@ -465,26 +462,22 @@ namespace ideology
             this.F_open.Focus();
         }
 
-        private void F_system_Click(object sender, System.EventArgs e)
+        private void F_system_Click(object sender, EventArgs e)
         {
-            
         }
-        private void mytime_Tick(object sender, System.EventArgs e)
-        {
 
-            RandomNumber = new Random((int)DateTime.Now.Ticks);
+        private void mytime_Tick(object sender, EventArgs e)
+        {
+            RandomNumber = new Random((int) DateTime.Now.Ticks);
             randomdata = RandomNumber.Next(DataTotal);
             label5.Text = RandomNumber.Next(DataTotal).ToString();
             label1.Text = dTable.Rows[randomdata].ItemArray.GetValue(0).ToString();
             label7.Text = "";
-
-
         }
         //---------------------------------------
 
         private void GroupData(int DataNum, string SigData, string NameData)
         {
-
             if (!ArrayMsg.Contains(SigData))
             {
                 if (ArrayMsg.Count < DataNum)
@@ -494,7 +487,6 @@ namespace ideology
                 }
                 else
                 {
-
                     //GroupBaseData.Clear();
                     Datanum1 = ArrayMsg.Count;
 
@@ -504,11 +496,10 @@ namespace ideology
                     ArrayName.Clear();
                 }
             }
-
         }
 
         //-------------------------------------------
-        private void F_open_Click(object sender, System.EventArgs e)
+        private void F_open_Click(object sender, EventArgs e)
         {
             mytime.Stop();
             this.F_begin.Focus();
@@ -516,57 +507,49 @@ namespace ideology
         }
 
 
-
         private void Data_Save(int DataNum, string newclass)
         {
-
             for (int i = 0; i < DataNum; i++)
             {
-
-                string SaveSql = "insert into data2 values('" + Goupdata1[i].ToString() + "','" + Goupdata2[i].ToString() + "','" + newclass + "')";
-
+                string SaveSql = "insert into data2 values('" + Goupdata1[i].ToString() + "','" +
+                                 Goupdata2[i].ToString() + "','" + newclass + "')";
             }
         }
-        private void F_site_Click(object sender, System.EventArgs e)
-        {
 
+        private void F_site_Click(object sender, EventArgs e)
+        {
         }
 
 
-
-        private void tol_close_Click(object sender, System.EventArgs e)
+        private void tol_close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void tol_min_Click(object sender, System.EventArgs e)
+        private void tol_min_Click(object sender, EventArgs e)
         {
-
             this.WindowState = FormWindowState.Minimized;
-
         }
 
-        private void SysMenu1_Popup(object sender, System.EventArgs e)
+        private void SysMenu1_Popup(object sender, EventArgs e)
         {
-
         }
 
-        private void Form1_Click(object sender, System.EventArgs e)
+        private void Form1_Click(object sender, EventArgs e)
         {
             this.F_begin.Focus();
         }
 
 
-        private void Form1_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Space)
             {
                 this.F_open.Focus();
             }
         }
 
-        private void tol_max_Click(object sender, System.EventArgs e)
+        private void tol_max_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
             {
@@ -576,12 +559,10 @@ namespace ideology
             {
                 this.WindowState = FormWindowState.Maximized;
             }
-
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }
