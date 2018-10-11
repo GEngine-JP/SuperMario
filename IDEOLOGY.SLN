@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ideology", "ideology.csproj", "{0FD37684-2141-47B4-9EB8-4CF4BFB17453}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FD37684-2141-47B4-9EB8-4CF4BFB17453}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{0FD37684-2141-47B4-9EB8-4CF4BFB17453}.Debug|.NET.Build.0 = Debug|Any CPU
+		{0FD37684-2141-47B4-9EB8-4CF4BFB17453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD37684-2141-47B4-9EB8-4CF4BFB17453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD37684-2141-47B4-9EB8-4CF4BFB17453}.Release|.NET.ActiveCfg = Release|Any CPU
+		{0FD37684-2141-47B4-9EB8-4CF4BFB17453}.Release|.NET.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54F496E6-A099-43A1-8060-E5CA5E961291}
+	EndGlobalSection
+EndGlobal
